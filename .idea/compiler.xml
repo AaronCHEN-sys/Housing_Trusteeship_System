@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Housing_Trusteeship_System" target="1.5" />
+      <module name="Housing_Trusteeship_System" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
