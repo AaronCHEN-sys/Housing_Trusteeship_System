@@ -22,7 +22,7 @@
     <!--配置视图解析器:InternalResourceViewResolver-->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--配置前缀：prefix-->
-        <property name="prefix" value="/pages/"></property>
+        <property name="prefix" value=""></property>
         <!--配置后缀：suffix-->
         <property name="suffix" value=""></property>
     </bean>

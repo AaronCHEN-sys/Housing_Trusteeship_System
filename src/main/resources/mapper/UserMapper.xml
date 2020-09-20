@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.mapper.UserMapper">
+
+    <!--根据员工号查询员工的登录信息-->
+    <select id="selectLoginInfo" resultType="Integer">
+        SELECT COUNT(*) FROM USER WHERE yuanGongID=#{yuanGongID} AND password=#{password}
+    </select>
+
+    <!--根据员工号查询员工的姓名-->
+    <select id="selectYuangongName" resultType="String">
+        SELECT name FROM yuangong WHERE id=#{yuanGongID}
+    </select>
+
+    <!--修改密码-->
+    <update id="updatePassword">
+        UPDATE user SET password=#{newPassword} WHERE yuanGongID=#{yuanGongID} AND password=#{oldPassword}
+    </update>
+
+    <!--根据员工号查询员工的头像路径-->
+    <select id="selectHeadshot" resultType="String">
+        SELECT touXiangPath FROM user WHERE yuanGongID=#{yuanGongID}
+    </select>
+
+    <!--根据员工号修改员工的头像路径-->
+    <update id="updateHeadshot">
+        UPDATE user SET touXiangPath=#{touXiangPath} WHERE yuanGongID=#{yuanGongID}
+    </update>
+</mapper>

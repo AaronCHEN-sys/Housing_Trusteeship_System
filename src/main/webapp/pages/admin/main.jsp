@@ -23,14 +23,20 @@
     <div class="top_c">
         <div class="top-menu">
             <ul class="top-menu-nav">
-                <li><a target="Conframe" href="index1.html">首页</a></li>
-                <li><a href="tab.html" target="Conframe">公司任务</a></li>
-                <li><a href="yuangong.html" target="Conframe">员工管理</a></li>
-                <li><a href="gongzi_list.html" target="Conframe">账目管理</a></li>
-                <li><a href="admin_manage.html" target="Conframe">角色设置</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/index1.jsp">首页</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/tab.jsp">公司任务</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/yuangong.jsp">员工管理</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/gongzi_list.jsp">账目管理</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/admin_manage.jsp">角色设置</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/pages/admin/changeHeadshot.jsp">头像设置</a></li>
             </ul>
         </div>
-        <div class="top-nav">上午好，欢迎您，admin！&nbsp;&nbsp;<a href="#">修改密码</a> | <a href="#">安全退出</a></div>
+        <div class="top-nav">
+            <img style="width: 40px; height: 40px;" src="<%=basePath %>/static/uploads/${sessionScope.headshot}">
+            上午好，欢迎您，${sessionScope.username}！&nbsp;&nbsp;
+            <a href="<%=basePath %>/pages/admin/changePassword.jsp" target="Conframe">修改密码</a> |
+            <a href="<%=basePath %>/user/getLogout.do">安全退出</a>
+        </div>
     </div>
     <!--头部结束-->
     <!--左边菜单开始-->
@@ -155,12 +161,12 @@
                         <li><b class="tip"></b><a target="Conframe" href="sf_list.html">收房帐</a></li>
                         <li><b class="tip"></b><a target="Conframe" href="zf_list.html">租房帐</a></li>
                         <li><b class="tip"></b><a target="Conframe" href="bg_list.html">办工支出</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="gongzi_list.html">工资发放</a></li>
+                        <li><b class="tip"></b><a target="Conframe" href="gongzi_list.jsp">工资发放</a></li>
                     </ul>
                 </li>
                 <li><a href="#">人事管理</a></a>
                     <ul>
-                        <li><b class="tip"></b><a target="Conframe" href="yuangong.html">员工管理</a></li>
+                        <li><b class="tip"></b><a target="Conframe" href="yuangong.jsp">员工管理</a></li>
                         <li><b class="tip"></b><a target="Conframe" href="kaoqin_list.html">考勤管理</a></li>
                         <li><b class="tip"></b><a target="Conframe" href="zhaopin_list.html">人员招聘</a></li>
                     </ul>
@@ -176,7 +182,7 @@
         <div class="nav-tip" onclick="javascript:void(0)">&nbsp;</div>
     </div>
     <div class="Conframe  tg">
-        <iframe name="Conframe" src="index1.html" id="Conframe"></iframe>
+        <iframe name="Conframe" src="<%=basePath %>/pages/admin/index1.jsp" id="Conframe"></iframe>
     </div>
     <!--右边框架结束-->
 

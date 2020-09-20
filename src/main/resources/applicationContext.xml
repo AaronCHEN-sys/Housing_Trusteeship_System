@@ -30,7 +30,7 @@
         <!--指定数据源-->
         <property name="dataSource" ref="basicDataSource"></property>
         <!--指定局部xml(保存sql语句的xml)的位置-->
-        <property name="mapperLocations" value="classpath*:com/java/mapper/*.xml"></property>
+        <property name="mapperLocations" value="classpath*:/mapper/*.xml"></property>
         <!--读取mybatis.xml主配置文件-->
         <property name="configLocation" value="classpath:mybatis.xml"></property>
     </bean>
