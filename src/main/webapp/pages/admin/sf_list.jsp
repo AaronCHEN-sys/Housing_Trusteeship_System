@@ -39,7 +39,7 @@
     <div id="usual1" class="usual">
         <div class="itab">
             <ul>
-                <li><a href="#tab2">租房帐列表</a></li>
+                <li><a href="#tab2">收房帐列表</a></li>
             </ul>
         </div>
         <div id="tab2" class="tabson">
@@ -76,14 +76,10 @@
                 <tr>
 
                     <th>编号<i class="sort"><img src="<%=basePath %>/static/images/px.gif"/></i></th>
-                    <th>员工姓名</th>
-                    <th>所属部门</th>
-                    <th>基本工资</th>
-                    <th>全勤奖金</th>
-                    <th>业绩提成</th>
-                    <th>应扣事项</th>
-                    <th>实发工资</th>
-                    <th>备注</th>
+                    <th>时间</th>
+                    <th>详细情况</th>
+                    <th>金额</th>
+                    <th>经办人</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -91,105 +87,73 @@
                 <tr>
 
                     <td>1</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>2</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>3</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>4</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>5</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>6</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>7</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>8</td>
-                    <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>2015-6-11</td>
+                    <td>湖口社区9栋2单元303室定金</td>
+                    <td>去外地工作</td>
+                    <td>刘一</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 </tbody>

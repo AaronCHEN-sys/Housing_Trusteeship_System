@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.mapper.HumanResourceMapper">
+
+    <!--员工管理之查询员工信息-->
+    <select id="selectEmpInfo" resultType="Map">
+        SELECT u.yuanGongID,yg.name,yg.gender,yg.idCard,d.name deptName,yg.address,yg.tel,yg.email
+        FROM USER u INNER JOIN yuangong yg ON u.yuanGongID=yg.id
+        INNER JOIN dept d ON yg.deptID=d.id
+        <where>
+            <if test="flag==1 and value!=null and value!=''">
+                yg.id LIKE CONCAT('%',#{value},'%')
+            </if>
+            <if test="flag==2 and value!=null and value!=''">
+                yg.name LIKE CONCAT('%',#{value},'%')
+            </if>
+            <if test="flag==3 and value!=null and value!=''">
+                yg.tel LIKE CONCAT('%',#{value},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--查询所有部门信息-->
+    <select id="selectDeptInfo" resultType="Map">
+        SELECT id,name deptName,leaderID FROM dept
+    </select>
+
+    <!--添加员工, 并且添加后返回主键值-->
+    <insert id="insertEmp" parameterType="com.java.pojo.Emp" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO yuangong SET name=#{name},tel=#{tel},gender=#{gender},
+        idCard=#{idCard},deptID=#{deptID},address=#{address},beginDate=#{beginDate},email=#{email}
+    </insert>
+
+    <!--添加用户-->
+    <insert id="insertUser">
+        INSERT INTO user SET yuanGongID=#{yuanGongID}
+    </insert>
+
+    <!--根据手机号查询是否存在该用户-->
+    <select id="selectCountYuanGongByTel" parameterType="com.java.pojo.Emp" resultType="Integer">
+        SELECT COUNT(*) FROM yuangong WHERE tel=#{tel}
+    </select>
+
+    <!--根据身份证查询是否存在该用户-->
+    <select id="selectCountYuanGongByIdCard" parameterType="com.java.pojo.Emp" resultType="Integer">
+        SELECT COUNT(*) FROM yuangong WHERE idCard=#{idCard}
+    </select>
+
+    <!--根据ID查询是否存在该用户-->
+    <select id="selectCountYuanGongByYuanGongId" resultType="Integer">
+        SELECT COUNT(*) FROM user WHERE yuanGongID=#{yuanGongID}
+    </select>
+
+    <!--根据ID查询用户信息-->
+    <select id="selectYuanGongByYuanGongId" resultType="Map">
+        SELECT u.yuanGongID,yg.name,yg.idCard,d.id deptID,d.name deptName,yg.address,yg.tel,yg.email,yg.gender,yg.beginDate
+        FROM USER u INNER JOIN yuangong yg ON u.yuanGongID=yg.id
+        INNER JOIN dept d ON yg.deptID=d.id
+        WHERE u.yuanGongID=#{yuanGongID}
+    </select>
+
+    <!--根据员工ID修改员工-->
+    <update id="updateStaff" parameterType="com.java.pojo.Staff">
+        UPDATE yuangong SET name=#{name},tel=#{tel},gender=#{gender},idCard=#{idCard},
+        deptID=#{deptID},address=#{address},email=#{email},beginDate=#{beginDate} WHERE id=#{yuanGongID}
+    </update>
+
+    <!--修改员工时,根据手机号查询是否存在该用户-->
+    <select id="selectCountYuanGongByTelWhenEdit" parameterType="com.java.pojo.Staff" resultType="Integer">
+        SELECT COUNT(*) FROM yuangong WHERE tel=#{tel}
+    </select>
+
+    <!--修改员工时,根据身份证查询是否存在该用户-->
+    <select id="selectCountYuanGongByIdCardWhenEdit" parameterType="com.java.pojo.Staff" resultType="Integer">
+        SELECT COUNT(*) FROM yuangong WHERE idCard=#{idCard}
+    </select>
+
+    <!--根据id查询原手机号和身份证号-->
+    <select id="selectTelAndIdCardById" resultType="Map">
+        SELECT tel,idCard FROM yuangong WHERE id=#{id}
+    </select>
+</mapper>

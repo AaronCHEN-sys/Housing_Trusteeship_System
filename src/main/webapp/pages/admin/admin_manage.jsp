@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
-%><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <base href="<%=basePath %>">
@@ -24,7 +25,7 @@
         <div class="itab">
             <ul>
                 <li><a href="#tab1" class="selected">角色设计</a></li>
-                <li><a class="selected" target="Conframe" href="admin_edit.html">添加</a></li>
+                <li><a class="selected" target="Conframe" href="admin_edit.jsp">添加</a></li>
             </ul>
         </div>
         <table class="tablelist" style="margin-top:20px;">

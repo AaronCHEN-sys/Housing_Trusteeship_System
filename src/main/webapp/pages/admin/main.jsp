@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/base.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/jquery-ui-1.8.22.custom.css"/>
-    <script type="text/javascript" src="<%=basePath %>/static/js/jquery-1.7.2.js"></script>
+    <%--<script type="text/javascript" src="<%=basePath %>/static/js/jquery-1.7.2.js"></script>--%>
+    <script src="<%=basePath%>/static/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="<%=basePath %>/static/js/jquery-ui-1.8.22.custom.min.js"></script>
     <script type="text/javascript" src="<%=basePath %>/static/js/index.js"></script>
     <script type="text/javascript" src="<%=basePath %>/static/js/accordion.js"></script>
@@ -25,15 +26,16 @@
             <ul class="top-menu-nav">
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/index1.jsp">首页</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/tab.jsp">公司任务</a></li>
-                <li><a target="Conframe" href="<%=basePath %>/pages/admin/yuangong.jsp">员工管理</a></li>
+                <li><a target="Conframe" href="<%=basePath %>/hr/getEmpInfo.do">员工管理</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/gongzi_list.jsp">账目管理</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/admin_manage.jsp">角色设置</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/changeHeadshot.jsp">头像设置</a></li>
             </ul>
         </div>
         <div class="top-nav">
-            <img style="width: 40px; height: 40px;" src="<%=basePath %>/static/uploads/${sessionScope.headshot}">
-            上午好，欢迎您，${sessionScope.username}！&nbsp;&nbsp;
+            <img style="width: 40px; height: 40px;"
+                 src="<%=basePath %>/static/uploads/${sessionScope.headshot}">
+            欢迎您，${sessionScope.username}！&nbsp;&nbsp;
             <a href="<%=basePath %>/pages/admin/changePassword.jsp" target="Conframe">修改密码</a> |
             <a href="<%=basePath %>/user/getLogout.do">安全退出</a>
         </div>
@@ -142,33 +144,75 @@
             <ul class="nav">
                 <li><a href="#" target="_blank">房屋托管</a>
                     <ul>
-                        <li class="active"><a target="Conframe" href="add_house.html">添加房源</a></li>
-                        <li><a target="Conframe" href="fy_list.html">房源列表</a></li>
-                        <li><a target="Conframe" href="fd_list.html">房东信息</a></li>
+                        <li class="active">
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/add_house.jsp">添加房源</a>
+                        </li>
+                        <li>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/fy_list.jsp">房源列表</a>
+                        </li>
+                        <li>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/fd_list.jsp">房东信息</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#">房屋出租</a>
                     <ul>
-                        <li><b class="tip"></b><a target="Conframe" href="fangyuan.html">出租房源</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="zufanglie.html">住房列表</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="tz_list.html">退租计划</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="zuke.html">租客信息</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="weixiu.html">房屋维修</a></li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/fangyuan.jsp">出租房源</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/zufanglie.jsp">住房列表</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/tz_list.jsp">退租计划</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/zuke.jsp">租客信息</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/weixiu.jsp">房屋维修</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#">财务管理</a>
                     <ul>
-                        <li><b class="tip"></b><a target="Conframe" href="sf_list.html">收房帐</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="zf_list.html">租房帐</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="bg_list.html">办工支出</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="gongzi_list.jsp">工资发放</a></li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/sf_list.jsp">收房帐</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/zf_list.jsp">租房帐</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/bg_list.jsp">办工支出</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/gongzi_list.jsp">工资发放</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#">人事管理</a></a>
                     <ul>
-                        <li><b class="tip"></b><a target="Conframe" href="yuangong.jsp">员工管理</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="kaoqin_list.html">考勤管理</a></li>
-                        <li><b class="tip"></b><a target="Conframe" href="zhaopin_list.html">人员招聘</a></li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/hr/getEmpInfo.do">员工管理</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/kaoqin_list.jsp">考勤管理</a>
+                        </li>
+                        <li>
+                            <b class="tip"></b>
+                            <a target="Conframe" href="<%=basePath %>/pages/admin/zhaopin_list.jsp">人员招聘</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

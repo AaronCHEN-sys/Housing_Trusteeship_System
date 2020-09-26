@@ -32,14 +32,14 @@
 <div class="place"><span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">系统设置</a></li>
+        <li><a href="#">房源列表</a></li>
     </ul>
 </div>
 <div class="formbody">
     <div id="usual1" class="usual">
         <div class="itab">
             <ul>
-                <li><a href="#tab2">租房帐列表</a></li>
+                <li><a href="#tab2">房源列表</a></li>
             </ul>
         </div>
         <div id="tab2" class="tabson">
@@ -62,27 +62,20 @@
                     <input name="" type="button" class="scbtn" value="查询"/>
                 </li>
             </ul>
-            <div class="tools">
-
-                <ul class="toolbar">
-                    <li class="click"><span><img src="<%=basePath %>/static/images/t01.png"></span>添加</li>
-                    <li><span><img src="<%=basePath %>/static/images/t03.png"></span>删除</li>
-                </ul>
-
-            </div>
-            <div class="clear"></div>
             <table class="tablelist">
                 <thead>
                 <tr>
-
-                    <th>编号<i class="sort"><img src="<%=basePath %>/static/images/px.gif"/></i></th>
-                    <th>员工姓名</th>
-                    <th>所属部门</th>
-                    <th>基本工资</th>
-                    <th>全勤奖金</th>
-                    <th>业绩提成</th>
-                    <th>应扣事项</th>
-                    <th>实发工资</th>
+                    <th>招聘ID<i class="sort"><img src="<%=basePath %>/static/images/px.gif"/></i></th>
+                    <th>招聘姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>兴趣爱好</th>
+                    <th>学历</th>
+                    <th>工作经验</th>
+                    <th>应聘岗位</th>
+                    <th>面试时间</th>
+                    <th>联系方式</th>
+                    <th>地址</th>
                     <th>备注</th>
                     <th>操作</th>
                 </tr>
@@ -92,104 +85,128 @@
 
                     <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>2</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>3</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>4</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>5</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>6</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>7</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
-                    <td>8</td>
+                    <td>1</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>男</td>
+                    <td>23</td>
+                    <td>打球</td>
+                    <td>本科</td>
+                    <td>一年java工程师</td>
+                    <td>java程序员</td>
+                    <td>2016-6-16</td>
+                    <td>13134567890</td>
+                    <td>湖北省黄冈市团风县</td>
+                    <td>下午提前半个小时到达</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 </tbody>

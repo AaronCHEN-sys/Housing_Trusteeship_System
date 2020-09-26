@@ -2,12 +2,12 @@
 <%
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
     <base href="<%=basePath %>">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>无标题文档</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>住房列表</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/select.css"/>
     <script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>
@@ -32,14 +32,15 @@
 <div class="place"><span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">系统设置</a></li>
+        <li><a href="#">房屋出租</a></li>
+        <li><a href="#">租房列表</a></li>
     </ul>
 </div>
 <div class="formbody">
     <div id="usual1" class="usual">
         <div class="itab">
             <ul>
-                <li><a href="#tab2">租房帐列表</a></li>
+                <li><a href="#tab2">租房列表</a></li>
             </ul>
         </div>
         <div id="tab2" class="tabson">
@@ -62,28 +63,19 @@
                     <input name="" type="button" class="scbtn" value="查询"/>
                 </li>
             </ul>
-            <div class="tools">
-
-                <ul class="toolbar">
-                    <li class="click"><span><img src="<%=basePath %>/static/images/t01.png"></span>添加</li>
-                    <li><span><img src="<%=basePath %>/static/images/t03.png"></span>删除</li>
-                </ul>
-
-            </div>
-            <div class="clear"></div>
             <table class="tablelist">
                 <thead>
                 <tr>
 
                     <th>编号<i class="sort"><img src="<%=basePath %>/static/images/px.gif"/></i></th>
-                    <th>员工姓名</th>
-                    <th>所属部门</th>
-                    <th>基本工资</th>
-                    <th>全勤奖金</th>
-                    <th>业绩提成</th>
-                    <th>应扣事项</th>
-                    <th>实发工资</th>
-                    <th>备注</th>
+                    <th>房屋名称</th>
+                    <th>房东姓名</th>
+                    <th>业务员姓名</th>
+                    <th>面积</th>
+                    <th>房屋户型</th>
+                    <th>托管时间</th>
+                    <th>托管金额</th>
+                    <th>房源描述</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -91,105 +83,105 @@
                 <tr>
 
                     <td>1</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>2</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>3</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>4</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>5</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>6</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>7</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 <tr>
 
                     <td>8</td>
+                    <td>九峰新区6栋1单元602室</td>
                     <td>张三</td>
-                    <td>业务部</td>
-                    <td>1800</td>
-                    <td>100</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>3700</td>
-                    <td>从提成扣电梯200</td>
+                    <td>甘红丽</td>
+                    <td>1室1厅1厨1卫</td>
+                    <td>15<span>㎡</span></td>
+                    <td>12<span>个月</span></td>
+                    <td>10000</td>
+                    <td>环境优雅，舒适适合上班族居住</td>
                     <td><a href="#" class="tablelink">编辑</a> <a href="#" class="tablelink"> 删除</a></td>
                 </tr>
                 </tbody>
