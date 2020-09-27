@@ -11,14 +11,15 @@
         FROM USER u INNER JOIN yuangong yg ON u.yuanGongID=yg.id
         INNER JOIN dept d ON yg.deptID=d.id
         <where>
+            u.flag='1'
             <if test="flag==1 and value!=null and value!=''">
-                yg.id LIKE CONCAT('%',#{value},'%')
+                AND yg.id LIKE CONCAT('%',#{value},'%')
             </if>
             <if test="flag==2 and value!=null and value!=''">
-                yg.name LIKE CONCAT('%',#{value},'%')
+                AND yg.name LIKE CONCAT('%',#{value},'%')
             </if>
             <if test="flag==3 and value!=null and value!=''">
-                yg.tel LIKE CONCAT('%',#{value},'%')
+                AND yg.tel LIKE CONCAT('%',#{value},'%')
             </if>
         </where>
     </select>
@@ -81,5 +82,15 @@
     <!--根据id查询原手机号和身份证号-->
     <select id="selectTelAndIdCardById" resultType="Map">
         SELECT tel,idCard FROM yuangong WHERE id=#{id}
+    </select>
+
+    <!--更新用户状态-->
+    <update id="updateFlagByYuanGongId">
+        UPDATE user SET flag='0' WHERE yuanGongID=#{yuanGongID}
+    </update>
+
+    <!--根据员工ID查询该员工是否是超级管理员-->
+    <select id="selectAdminUser" resultType="Integer">
+        SELECT COUNT(*) FROM user WHERE yuanGongID=#{yuanGongID} AND admin='1'
     </select>
 </mapper>

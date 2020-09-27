@@ -116,4 +116,20 @@ public interface HumanResourceMapper {
      */
     Map<String, Object> selectTelAndIdCardById(@Param("id") Long id);
 
+    /**
+     * 更新用户状态
+     *
+     * @param yuanGongID 员工ID
+     * @return
+     */
+    int updateFlagByYuanGongId(@Param("yuanGongID") String yuanGongID);
+
+    /**
+     * 根据员工ID查询该员工是否是超级管理员
+     *
+     * @param yuanGongID 员工ID
+     * @return
+     */
+    int selectAdminUser(@Param("yuanGongID") String yuanGongID);
+
 }

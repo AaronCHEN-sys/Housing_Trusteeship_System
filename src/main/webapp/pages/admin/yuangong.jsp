@@ -12,6 +12,8 @@
     <link href="<%=basePath %>/static/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="<%=basePath %>/static/css/select.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="<%=basePath%>/static/js/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="<%=basePath %>/static/js/sweetalert/sweetalert.css">
+    <script type="text/javascript" src="<%=basePath %>/static/js/sweetalert/sweetalert.min.js"></script>
     <script src="<%=basePath%>/static/js/bootstrap/jquery.min.js"></script>
     <%--<script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>--%>
     <script type="text/javascript" src="<%=basePath %>/static/js/select-ui.min.js"></script>
@@ -154,17 +156,32 @@
         </div>
     </div>
     <script type="text/javascript">
-        function singleDelete(yuangongID) {
+
+        /*单个删除员工*/
+        function singleDelete(yuanGongID) {
             $.ajax({
                 url: "<%=basePath %>/hr/abandonYuanGong.do",
                 type: "POST",
                 dataType: "JSON",
                 data: {
-                    "yuangongID": yuangongID
+                    "yuanGongID": yuanGongID
                 },
                 success: function (rs) {
-                    if ()else
-                    {
+                    if (rs.flag) {
+                        //删除成功
+                        swal({
+                            title: "提示",
+                            text: "删除成功!",
+                        }, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        //删除失败
+                        var errorMsg = rs.errorMsg;
+                        swal({
+                            title: "提示",
+                            text: errorMsg
+                        });
                     }
                 }
             });

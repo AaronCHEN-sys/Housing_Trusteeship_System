@@ -7,7 +7,7 @@
 
     <!--根据员工号查询员工的登录信息-->
     <select id="selectLoginInfo" resultType="Integer">
-        SELECT COUNT(*) FROM USER WHERE yuanGongID=#{yuanGongID} AND password=#{password}
+        SELECT COUNT(*) FROM USER WHERE yuanGongID=#{yuanGongID} AND password=#{password} AND flag='1'
     </select>
 
     <!--根据员工号查询员工的姓名-->

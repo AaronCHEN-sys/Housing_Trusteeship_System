@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -153,5 +154,20 @@ public class HumanResourceController {
             e.printStackTrace();
             return "redirect:/hr/toEditStaff.do";
         }
+    }
+
+
+    /**
+     * 删除员工
+     *
+     * @param yuanGongID 员工ID
+     * @param session
+     * @return
+     */
+    @RequestMapping("/abandonYuanGong.do")
+    @ResponseBody
+    public Map<String, Object> abandonYuanGong(String yuanGongID, HttpSession session) {
+        String currentYuanGongID = session.getAttribute("yuanGongID").toString();
+        return humanResourceService.modifyFlagByYuanGongId(yuanGongID, currentYuanGongID);
     }
 }

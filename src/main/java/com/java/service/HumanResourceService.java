@@ -66,4 +66,13 @@ public interface HumanResourceService {
      * @throws SQLException
      */
     boolean modifyStaff(Staff staff, HttpServletRequest request) throws SQLException;
+
+    /**
+     * 更新用户状态
+     *
+     * @param yuanGongID        员工ID
+     * @param currentYuanGongID 当前已登录的员工ID
+     * @return
+     */
+    Map<String, Object> modifyFlagByYuanGongId(String yuanGongID, String currentYuanGongID);
 }
