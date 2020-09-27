@@ -132,4 +132,12 @@ public interface HumanResourceMapper {
      */
     int selectAdminUser(@Param("yuanGongID") String yuanGongID);
 
+    /**
+     * 批量更新用户状态
+     *
+     * @param yuanGongIDStr 员工ID字符串
+     * @return
+     */
+    int updateFlagByBatch(@Param("yuanGongIDStr") String yuanGongIDStr);
+
 }

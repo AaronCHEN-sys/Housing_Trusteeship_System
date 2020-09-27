@@ -170,4 +170,17 @@ public class HumanResourceController {
         String currentYuanGongID = session.getAttribute("yuanGongID").toString();
         return humanResourceService.modifyFlagByYuanGongId(yuanGongID, currentYuanGongID);
     }
+
+    /**
+     * 批量删除员工
+     *
+     * @param yuanGongIDStr 员工ID字符串
+     * @return
+     */
+    @RequestMapping("/abandonYuanGongByBatch.do")
+    @ResponseBody
+    public Map<String, Object> abandonYuanGongByBatch(String yuanGongIDStr, HttpSession session) {
+        String currentYuanGongID = session.getAttribute("yuanGongID").toString();
+        return humanResourceService.modifyFlagByBatch(yuanGongIDStr, currentYuanGongID);
+    }
 }

@@ -58,6 +58,63 @@
             $(".select3").uedSelect({
                 width: 100
             });
+
+            /*全选与全不选*/
+            $("#selectAll").click(function () {
+                var flag = $(this).prop("checked");
+                if (flag) {
+                    //全选
+                    $("tbody input[type=checkbox]").prop("checked", true);
+                } else {
+                    //全不选
+                    $("tbody input[type=checkbox]").prop("checked", false);
+                }
+            });
+
+            /*批量删除用户*/
+            $("#batchDeleteUser").click(function () {
+                var $cks = $("tbody input[type=checkbox]:checked");
+                var size = $cks.size();
+                if (size >= 1) {
+                    var yuanGongIDStr = "";
+                    for (var i = 0; i < size; i++) {
+                        var val = $cks.eq(i).val();
+                        yuanGongIDStr += val + ",";
+                    }
+                    $.ajax({
+                        url: "<%=basePath %>/hr/abandonYuanGongByBatch.do",
+                        type: "POST",
+                        dataType: "JSON",
+                        data: {
+                            "yuanGongIDStr": yuanGongIDStr
+                        },
+                        success: function (rs) {
+                            if (rs.flag) {
+                                //删除成功
+                                swal({
+                                    title: "提示",
+                                    text: "删除成功!",
+                                }, function () {
+                                    window.location.reload();
+                                });
+                            } else {
+                                //删除失败
+                                var errorMsg = rs.errorMsg;
+                                swal({
+                                    title: "提示",
+                                    text: errorMsg
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    swal({
+                        title: "提示",
+                        text: "请选择需要删除的用户!"
+                    });
+                }
+            });
+
         });
     </script>
 </head>
@@ -104,7 +161,7 @@
                     <li class="click" onclick="location.href='<%=basePath %>/hr/toAddEmp.do'">
                         <span><img src="<%=basePath %>/static/images/t01.png"></span>添加
                     </li>
-                    <li>
+                    <li id="batchDeleteUser">
                         <span><img src="<%=basePath %>/static/images/t03.png"></span>删除
                     </li>
                 </ul>
@@ -113,7 +170,7 @@
             <table class="tablelist">
                 <thead>
                 <tr>
-                    <th><input name="" type="checkbox" value="" checked="checked"/></th>
+                    <th><input name="" id="selectAll" type="checkbox" value=""/></th>
                     <th>序号<i class="sort"><img src="<%=basePath %>/static/images/px.gif"/></i></th>
                     <th>员工编号</th>
                     <th>员工姓名</th>
@@ -129,7 +186,7 @@
                 <tbody>
                 <c:forEach items="${requestScope.empInfoList.list}" var="empInfo" varStatus="num">
                     <tr>
-                        <td><input name="" type="checkbox" value=""/></td>
+                        <td><input type="checkbox" value="${empInfo.yuanGongID}"/></td>
                         <td>${num.count}</td>
                         <td>${empInfo.yuanGongID}</td>
                         <td>${empInfo.name}</td>
@@ -187,7 +244,8 @@
             });
         }
 
-        $("#usual1 ul").idTabs();
+        jQuery("#usual1 ul").idTabs();
+
     </script>
     <script type="text/javascript">
         $('.tablelist tbody tr:odd').addClass('odd');

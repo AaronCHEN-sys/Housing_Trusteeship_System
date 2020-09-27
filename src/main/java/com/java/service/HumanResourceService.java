@@ -75,4 +75,13 @@ public interface HumanResourceService {
      * @return
      */
     Map<String, Object> modifyFlagByYuanGongId(String yuanGongID, String currentYuanGongID);
+
+    /**
+     * 批量更新用户状态
+     *
+     * @param yuanGongIDStr     员工ID字符串
+     * @param currentYuanGongID 当前已登录的员工ID
+     * @return
+     */
+    Map<String, Object> modifyFlagByBatch(String yuanGongIDStr, String currentYuanGongID);
 }

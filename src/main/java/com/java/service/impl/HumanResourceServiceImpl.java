@@ -169,4 +169,38 @@ public class HumanResourceServiceImpl implements HumanResourceService {
         return resultMap;
     }
 
+    @Override
+    public Map<String, Object> modifyFlagByBatch(String yuanGongIDStr, String currentYuanGongID) {
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("flag", true);
+        //1.数据校验
+        if (yuanGongIDStr == null || !(yuanGongIDStr).matches("([1-9]\\d*,)+")) {
+            resultMap.put("flag", false);
+            resultMap.put("errorMsg", "亲！请不要乱搞！");
+            return resultMap;
+        }
+        //2.判断是否自己删除自己
+        boolean flag = yuanGongIDStr.contains(currentYuanGongID);
+        if (flag) {
+            resultMap.put("flag", false);
+            resultMap.put("errorMsg", "删除的记录中包含自己！");
+            return resultMap;
+        }
+        //3.判断当前登录的用户是否是超级管理员
+        int i = humanResourceMapper.selectAdminUser(currentYuanGongID);
+        if (i != 1) {
+            resultMap.put("flag", false);
+            resultMap.put("errorMsg", "不是超级管理员，没有删除权限！");
+            return resultMap;
+        }
+        //4.执行更新操作
+        int j = humanResourceMapper.updateFlagByBatch(yuanGongIDStr + "20180000");
+        if (j <= 0) {
+            resultMap.put("flag", false);
+            resultMap.put("errorMsg", "删除失败！此员工不存在！");
+            return resultMap;
+        }
+        return resultMap;
+    }
+
 }

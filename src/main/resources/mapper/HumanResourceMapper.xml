@@ -93,4 +93,11 @@
     <select id="selectAdminUser" resultType="Integer">
         SELECT COUNT(*) FROM user WHERE yuanGongID=#{yuanGongID} AND admin='1'
     </select>
+
+    <!--批量更新用户状态-->
+    <update id="updateFlagByBatch">
+        UPDATE USER SET flag='0' WHERE yuanGongID IN (${yuanGongIDStr})
+    </update>
+
+
 </mapper>
