@@ -183,4 +183,16 @@ public class HumanResourceController {
         String currentYuanGongID = session.getAttribute("yuanGongID").toString();
         return humanResourceService.modifyFlagByBatch(yuanGongIDStr, currentYuanGongID);
     }
+
+    /**
+     * 保存打卡记录
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/addDaKa.do")
+    @ResponseBody
+    public Map<String, Object> addDaKa(HttpSession session) {
+        return humanResourceService.saveDaKa(session.getAttribute("yuanGongID").toString());
+    }
 }

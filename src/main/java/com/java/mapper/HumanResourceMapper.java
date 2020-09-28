@@ -140,4 +140,32 @@ public interface HumanResourceMapper {
      */
     int updateFlagByBatch(@Param("yuanGongIDStr") String yuanGongIDStr);
 
+    /**
+     * 根据员工ID查询在当天是否有打卡记录
+     *
+     * @param yuanGongID 员工ID
+     * @return
+     */
+    int selectCountFirstDaKa(@Param("yuanGongID") String yuanGongID);
+
+    /**
+     * 第一次打卡
+     *
+     * @param yuanGongID 员工ID
+     * @param daKa1      打一次打卡时间
+     * @param zhuangTai  状态
+     * @return
+     */
+    int insertFirstDaKa(@Param("yuanGongID") String yuanGongID, @Param("daKa1") String daKa1, @Param("zhuangTai") String zhuangTai);
+
+    /**
+     * 第二次打卡
+     *
+     * @param daKa2      打二次打卡时间
+     * @param zhuangTai  状态
+     * @param yuanGongID 员工ID
+     * @return
+     */
+    int updateDaKa2AndCiShu(@Param("daKa2") String daKa2, @Param("zhuangTai") String zhuangTai, @Param("yuanGongID") String yuanGongID);
+
 }

@@ -99,5 +99,21 @@
         UPDATE USER SET flag='0' WHERE yuanGongID IN (${yuanGongIDStr})
     </update>
 
+    <!--根据员工ID查询在当天是否有打卡记录-->
+    <select id="selectCountFirstDaKa" resultType="Integer">
+        SELECT COUNT(*) FROM kaoqin WHERE yuanGongID=#{yuanGongID} AND date=DATE_FORMAT(NOW(),'%Y-%m-%d')
+    </select>
+
+    <!--第一次打卡-->
+    <insert id="insertFirstDaKa">
+        INSERT INTO kaoqin SET yuanGongID=#{yuanGongID},daKa1=#{daKa1},
+        date=DATE_FORMAT(NOW(),'%Y-%m-%d'),DaKaCiShu=1,zhuangTai=#{zhuangTai}
+    </insert>
+
+    <!--第二次打卡-->
+    <update id="updateDaKa2AndCiShu">
+        UPDATE kaoqin SET daKa2=#{daKa2},DaKaCiShu=2,zhuangTai=#{zhuangTai} WHERE yuanGongID=#{yuanGongID}
+    </update>
+
 
 </mapper>

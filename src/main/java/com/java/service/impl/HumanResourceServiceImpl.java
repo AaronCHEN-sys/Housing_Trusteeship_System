@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -201,6 +204,63 @@ public class HumanResourceServiceImpl implements HumanResourceService {
             return resultMap;
         }
         return resultMap;
+    }
+
+    @Override
+    public Map<String, Object> saveDaKa(String yuanGongID) {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            resultMap.put("flag", true);
+            //1.获取员工ID
+            //2.判断此员工当天是第一次打卡还是第二次打卡
+            int i = humanResourceMapper.selectCountFirstDaKa(yuanGongID);
+            String zhuangTai = "1";
+            if (i == 0) {
+                //第一次打卡
+                //打卡时间
+                long daKaTime = System.currentTimeMillis();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 09:00:00");
+                String format = sdf.format(new Date());
+                //公司规定上班时间
+                long companyDaKaTime = sdf.parse(format).getTime();
+                //判断是否迟到
+                long cha = daKaTime - companyDaKaTime;
+                if (cha > 0) {
+                    //迟到
+                    zhuangTai = "2";
+                    resultMap.put("errorMsg", "迟到！");
+                }
+                //开始第一次打卡
+                int j = humanResourceMapper.insertFirstDaKa(yuanGongID, new SimpleDateFormat("HH:mm:ss").format(new Date()), zhuangTai);
+                if (j == 0) {
+                    resultMap.put("flag", false);
+                    resultMap.put("errorMsg", "系统崩溃,打卡失败！");
+                }
+                return resultMap;
+            }
+            //第二次打卡
+            long daKaTime2 = System.currentTimeMillis();
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd 18:00:00");
+            String format2 = sdf2.format(new Date());
+            //公司规定上班时间
+            long companyDaKaTime2 = sdf2.parse(format2).getTime();
+            //判断是否迟到
+            long cha = daKaTime2 - companyDaKaTime2;
+            if (cha < 0) {
+                zhuangTai = "5";
+            }
+            int k = humanResourceMapper.updateDaKa2AndCiShu(new SimpleDateFormat("HH:mm:ss").format(new Date()), zhuangTai, yuanGongID);
+            if (k == 0) {
+                resultMap.put("flag", false);
+                resultMap.put("errorMsg", "系统崩溃,打卡失败！");
+            }
+            return resultMap;
+        } catch (ParseException e) {
+            resultMap.put("flag", false);
+            resultMap.put("errorMsg", "系统崩溃,打卡失败！");
+            e.printStackTrace();
+            return resultMap;
+        }
     }
 
 }

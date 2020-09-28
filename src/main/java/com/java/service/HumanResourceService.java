@@ -84,4 +84,12 @@ public interface HumanResourceService {
      * @return
      */
     Map<String, Object> modifyFlagByBatch(String yuanGongIDStr, String currentYuanGongID);
+
+    /**
+     * 保存打卡记录
+     *
+     * @param yuanGongID 员工ID
+     * @return
+     */
+    Map<String, Object> saveDaKa(String yuanGongID);
 }

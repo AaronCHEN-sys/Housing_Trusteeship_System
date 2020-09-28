@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/base.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath %>/static/css/jquery-ui-1.8.22.custom.css"/>
+    <link rel="stylesheet" href="<%=basePath %>/static/js/sweetalert/sweetalert.css">
+    <script type="text/javascript" src="<%=basePath %>/static/js/sweetalert/sweetalert.min.js"></script>
     <%--<script type="text/javascript" src="<%=basePath %>/static/js/jquery-1.7.2.js"></script>--%>
     <script src="<%=basePath%>/static/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="<%=basePath %>/static/js/jquery-ui-1.8.22.custom.min.js"></script>
@@ -27,7 +29,8 @@
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/index1.jsp">首页</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/tab.jsp">公司任务</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/hr/getEmpInfo.do">员工管理</a></li>
-                <li><a target="Conframe" href="<%=basePath %>/pages/admin/gongzi_list.jsp">账目管理</a></li>
+                <%--<li><a target="Conframe" href="<%=basePath %>/pages/admin/gongzi_list.jsp">账目管理</a></li>--%>
+                <li><a href="javascript:void(0)" id="attendance">考勤打卡</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/admin_manage.jsp">角色设置</a></li>
                 <li><a target="Conframe" href="<%=basePath %>/pages/admin/changeHeadshot.jsp">头像设置</a></li>
             </ul>
@@ -51,6 +54,33 @@
                     speed: 500,
                     closedSign: '[+]',
                     openedSign: '[-]'
+                });
+            });
+
+            //考勤打卡
+            $("#attendance").click(function () {
+                $.ajax({
+                    url: "<%=basePath %>/hr/addDaKa.do",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {},
+                    success: function (rs) {
+                        var flag = rs.flag;
+                        var errorMsg = "成功";
+                        if (!flag) {
+                            errorMsg = rs.errorMsg;
+                        }
+                        swal({
+                            title: "温馨提示",
+                            text: "打卡成功！"
+                        });
+                    },
+                    error: function (rs) {
+                        swal({
+                            title: "提示",
+                            text: "打卡失败！"
+                        });
+                    }
                 });
             });
         </script>
